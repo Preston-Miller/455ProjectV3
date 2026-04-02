@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('partials/head') %>
+  </head>
+  <body>
+    <div class="wrap">
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/order">Place order</a>
+        <a href="/admin">Admin</a>
+      </nav>
+      <h1><%= title %></h1>
+      <p class="muted" style="margin-bottom: 1rem">
+        <code>is_fraud</code> comes from the database. Ground-truth checkboxes are for labeling practice only (not saved).
+      </p>
+
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>When</th>
+              <th>Customer</th>
+              <th class="num">Total</th>
+              <th>Pay</th>
+              <th>Device</th>
+              <th>is_fraud</th>
+              <th>Ground truth (fraud?)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% orders.forEach(function (o) { %>
+            <tr>
+              <td><%= o.order_id %></td>
+              <td><%= o.order_datetime %></td>
+              <td><%= o.customer_name %><br /><span class="muted"><%= o.customer_email %></span></td>
+              <td class="num"><%= o.order_total %></td>
+              <td><%= o.payment_method %></td>
+              <td><%= o.device_type %></td>
+              <td><%= o.is_fraud ? 'Yes' : 'No' %></td>
+              <td><label><input type="checkbox" /> Actually fraud</label></td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+
+      <% if (!orders.length) { %>
+      <p class="muted">No orders yet.</p>
+      <% } %>
+    </div>
+  </body>
+</html>

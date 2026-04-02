@@ -1,0 +1,14 @@
+{
+  "name": "455projectv3",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "sql.js": "^1.11.0"
+  }
+}

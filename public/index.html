@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>455 Project</title>
+    <title>455 Project — IS 455</title>
     <style>
       :root {
         color-scheme: light dark;
@@ -50,13 +50,21 @@
         margin: 0 0 0.75rem;
       }
       p {
-        margin: 0;
+        margin: 0 0 1rem;
         color: var(--muted);
         font-size: 1.05rem;
       }
+      .links {
+        margin-top: 1.25rem;
+      }
+      .links a {
+        color: var(--accent);
+        font-weight: 600;
+        margin: 0 0.5rem;
+      }
       .badge {
         display: inline-block;
-        margin-top: 1.5rem;
+        margin-top: 1rem;
         padding: 0.35rem 0.75rem;
         font-size: 0.8rem;
         font-weight: 500;
@@ -69,8 +77,12 @@
   <body>
     <main>
       <h1>IS 455 — Machine Learning</h1>
-      <p>Deployment is live. This page confirms Vercel is serving the project.</p>
-      <span class="badge">Vercel OK</span>
+      <p>Shop order demo: place orders and review them on the admin page.</p>
+      <p class="links">
+        <a href="/order">Place an order</a>
+        <a href="/admin">Admin</a>
+      </p>
+      <span class="badge">Express + SQLite</span>
     </main>
   </body>
 </html>
