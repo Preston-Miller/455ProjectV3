@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin — orders</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="order.html">Place order</a>
+        <a href="admin.html">Admin</a>
+      </nav>
+      <h1>Orders (admin)</h1>
+      <p class="muted" style="margin-bottom: 1rem">
+        Column headers match <code>orders</code> from <code>shop.db</code> (plus <strong>ground truth</strong> for
+        ML labeling — not a DB column). No data — frontend only.
+      </p>
+
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>order_id</th>
+              <th>customer_id</th>
+              <th>order_datetime</th>
+              <th>billing_zip</th>
+              <th>shipping_zip</th>
+              <th>shipping_state</th>
+              <th>payment_method</th>
+              <th>device_type</th>
+              <th>ip_country</th>
+              <th>promo_used</th>
+              <th>promo_code</th>
+              <th class="num">order_subtotal</th>
+              <th class="num">shipping_fee</th>
+              <th class="num">tax_amount</th>
+              <th class="num">order_total</th>
+              <th>is_fraud</th>
+              <th>Ground truth</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="17" class="muted">No rows — connect a backend to load from SQLite/Postgres later.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
