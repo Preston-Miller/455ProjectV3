@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin — orders</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body class="page-admin">
+    <div class="wrap">
+      <nav class="nav">
+        <a href="/">Place order</a>
+        <a href="/admin">Admin</a>
+      </nav>
+      <h1>Orders (admin)</h1>
+      <p class="muted" style="margin-bottom: 1rem">
+        Live data from <code>shop.db</code> (<code>orders</code> + <code>customers</code>). Ground-truth checkboxes
+        are UI only. <code>risk_score</code> is not shown.
+      </p>
+
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>order_id</th>
+              <th>customer</th>
+              <th>order_datetime</th>
+              <th>billing_zip</th>
+              <th>shipping_zip</th>
+              <th>shipping_state</th>
+              <th>payment_method</th>
+              <th>device_type</th>
+              <th>ip_country</th>
+              <th>promo_used</th>
+              <th>promo_code</th>
+              <th class="num">order_subtotal</th>
+              <th class="num">shipping_fee</th>
+              <th class="num">tax_amount</th>
+              <th class="num">order_total</th>
+              <th>is_fraud</th>
+              <th>Ground truth</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% orders.forEach(function (o) { %>
+            <tr>
+              <td><%= o.order_id %></td>
+              <td>
+                <%= o.customer_id %><br />
+                <span class="muted"><%= o.customer_name %></span><br />
+                <span class="muted" style="font-size: 0.75rem"><%= o.customer_email %></span>
+              </td>
+              <td><%= o.order_datetime %></td>
+              <td><%= o.billing_zip != null ? o.billing_zip : "—" %></td>
+              <td><%= o.shipping_zip != null ? o.shipping_zip : "—" %></td>
+              <td><%= o.shipping_state != null ? o.shipping_state : "—" %></td>
+              <td><%= o.payment_method %></td>
+              <td><%= o.device_type %></td>
+              <td><%= o.ip_country %></td>
+              <td><%= o.promo_used %></td>
+              <td><%= o.promo_code != null ? o.promo_code : "—" %></td>
+              <td class="num"><%= o.order_subtotal %></td>
+              <td class="num"><%= o.shipping_fee %></td>
+              <td class="num"><%= o.tax_amount %></td>
+              <td class="num"><%= o.order_total %></td>
+              <td><%= o.is_fraud ? "Yes" : "No" %></td>
+              <td><label><input type="checkbox" /> Actually fraud</label></td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+
+      <% if (!orders.length) { %>
+      <p class="muted">No orders in the database.</p>
+      <% } %>
+    </div>
+  </body>
+</html>

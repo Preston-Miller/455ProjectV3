@@ -9,13 +9,14 @@
   <body>
     <div class="wrap">
       <nav class="nav">
-        <a href="admin.html">Admin</a>
+        <a href="/admin">Admin</a>
       </nav>
       <h1>Place order</h1>
       <p class="muted" style="margin-bottom: 1rem">
         Fields match the <code>orders</code> table in <code>shop.db</code>. <code>order_id</code> is auto-increment;
-        <code>risk_score</code> and <code>is_fraud</code> are labels in the DB (not shown here). No server — this
-        form does not submit anywhere.
+        <code>risk_score</code> and <code>is_fraud</code> are labels in the DB (not shown here). This form is still
+        a demo (no save). Run <code>npm start</code> and open <a href="/admin">Admin</a> to view live data from
+        <code>shop.db</code>.
       </p>
 
       <form action="#" method="get" onsubmit="return false">
