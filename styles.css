@@ -1,117 +1,191 @@
+/* Shop-style: white + light green */
+
 :root {
-  color-scheme: light dark;
-  --bg: #0f1419;
-  --fg: #e7ecf3;
-  --muted: #8b98a5;
-  --accent: #1d9bf0;
-  --border: color-mix(in oklab, var(--fg) 12%, transparent);
+  --bg-page: #f0f4f1;
+  --bg-card: #ffffff;
+  --bg-mint: #e8f5e9;
+  --bg-mint-hover: #c8e6c9;
+  --green: #2e7d32;
+  --green-dark: #1b5e20;
+  --green-soft: #a5d6a7;
+  --text: #1a1a1a;
+  --muted: #5c5c5c;
+  --border: #c8e6c9;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg: #f7f9fc;
-    --fg: #0f1419;
-    --muted: #536471;
-    --accent: #1d9bf0;
-  }
-}
+
 * {
   box-sizing: border-box;
 }
+
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  background: radial-gradient(
-      ellipse 120% 80% at 50% -20%,
-      color-mix(in oklab, var(--accent) 25%, transparent),
-      transparent 50%
-    ),
-    var(--bg);
-  color: var(--fg);
-  line-height: 1.5;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  background: var(--bg-page);
+  color: var(--text);
+  line-height: 1.55;
 }
+
+/* Serif for headings, sans for UI */
+h1,
+.nav,
+label,
+button,
+input,
+select,
+table,
+code {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+}
+
 a {
-  color: var(--accent);
-}
-.wrap {
-  max-width: 52rem;
-  margin: 0 auto;
-  padding: 1.5rem;
-}
-h1 {
-  font-size: 1.5rem;
+  color: var(--green-dark);
+  text-decoration: none;
   font-weight: 600;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.wrap {
+  max-width: 40rem;
+  margin: 1.5rem auto;
+  padding: 2rem 2.25rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  box-shadow: var(--shadow);
+}
+
+.page-admin .wrap {
+  max-width: min(56rem, 96vw);
+}
+
+h1 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--green-dark);
+  margin: 0 0 0.5rem;
   letter-spacing: -0.02em;
-  margin: 0 0 1rem;
 }
+
 .nav {
-  margin-bottom: 1.25rem;
-  font-size: 0.95rem;
+  margin: -0.5rem -0.25rem 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
 }
+
 .nav a {
-  margin-right: 0.75rem;
+  margin-right: 1rem;
 }
+
 .muted {
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
+
 label {
   display: block;
-  font-size: 0.85rem;
-  font-weight: 500;
-  margin-bottom: 0.25rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.2rem;
 }
+
 input,
 select,
 textarea {
   width: 100%;
   max-width: 28rem;
-  padding: 0.45rem 0.6rem;
-  border-radius: 6px;
-  border: 1px solid var(--border);
-  background: color-mix(in oklab, var(--fg) 4%, var(--bg));
-  color: var(--fg);
+  padding: 0.5rem 0.65rem;
+  border-radius: 3px;
+  border: 1px solid #d0d0d0;
+  background: #fff;
+  color: var(--text);
   margin-bottom: 0.75rem;
+  font-size: 0.95rem;
 }
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--green-soft);
+  outline-offset: 1px;
+  border-color: var(--green-soft);
+}
+
 .row {
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.2rem;
 }
-button[type="submit"] {
-  margin-top: 0.5rem;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  border: none;
-  background: var(--accent);
+
+button[type="submit"],
+button[type="button"] {
+  margin-top: 0.75rem;
+  padding: 0.6rem 1.35rem;
+  border-radius: 3px;
+  border: 1px solid var(--green);
+  background: var(--green);
   color: #fff;
   font-weight: 600;
+  font-size: 0.95rem;
   cursor: pointer;
 }
+
+button[type="submit"]:hover,
+button[type="button"]:hover {
+  background: var(--green-dark);
+  border-color: var(--green-dark);
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
+  background: var(--bg-card);
 }
+
 th,
 td {
   text-align: left;
-  padding: 0.4rem 0.45rem;
+  padding: 0.5rem 0.5rem;
   border-bottom: 1px solid var(--border);
   vertical-align: top;
 }
-th {
-  font-size: 0.7rem;
+
+thead th {
+  background: var(--bg-mint);
+  color: var(--green-dark);
+  font-size: 0.68rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
-  color: var(--muted);
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--green-soft);
   white-space: nowrap;
 }
+
+tbody tr:hover {
+  background: #fafcfa;
+}
+
 .num {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
+
 .scroll {
   overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 3px;
 }
+
 code {
   font-size: 0.85em;
+  background: var(--bg-mint);
+  padding: 0.1em 0.35em;
+  border-radius: 2px;
+  color: var(--green-dark);
 }
